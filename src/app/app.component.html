@@ -1,0 +1,47 @@
+<h2>Services</h2>
+<h3>Creacion de un servicio</h3>
+<!-- A1
+SERVICES
+en la terminal creamos un servicio 
+escribiendo:  ng generate service services/Personas --skipTests nos vamos
+a personas.service.ts A2-->
+
+<!-- A12 mostrando en una tabla -->
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Edad</th>
+        <th>Activo</th>
+    </tr>
+    <tr *ngFor="let pers of arrPersonas">
+        <td>{{pers.nombre}}</td>
+        <td>{{pers.apellidos}}</td>
+        <td>{{pers.edad}}</td>
+        <td>{{pers.activo}}</td>
+    </tr>
+</table>
+
+<hr>
+<h3>Providers-Singleton</h3>
+<!-- B1 Providers-Singleton -->
+<!--cuado inyectamos un servicio si la inyeccion que hacemos es de un objeto unico
+para ese componente o ese objeto lo comparten todos los componentes de mi aplicacion-->
+<!-- en nuestro caso en personas.service.ts el @Injectable  providedIn dice que
+va a ser inyectado en todos los componentes de la aplicacion....
+pero si cada componente quiero que tenga su propio objeto ...Crearemos nuevo componente
+Lista en la terminal ..ahora en ts de Lista B2 -->
+<app-lista></app-lista>
+<!-- B6 agregando nueva persona con el evento onclik luego el el ts B7 -->
+<button (click)="onClick()">Agrega Nueva Persona</button>
+<hr>
+
+<h3>Sevicio con Promesa</h3>
+<!-- C1 Servicio con Promesa -->
+<!-- en lugar de devolver un array o un objeto trabajemos con promesas dentro de esos
+metodos....vamos a crear un metodo que puedan filtrar las personas que esten activas
+empezamos en el ts de personas.service.ts C2  -->
+
+<!-- C4 boton para solo cargar las personas activas luego C5 -->
+<button (click)="onClickActivas()">Personas Activas</button>
